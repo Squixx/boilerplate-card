@@ -1,5 +1,5 @@
-import { directive, PropertyPart } from 'lit-html';
-import { fireEvent, ActionHandlerOptions } from 'custom-card-helpers';
+import { ActionHandlerOptions, fireEvent } from 'custom-card-helpers';
+import { PropertyPart, directive } from 'lit-html';
 
 const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 
@@ -164,16 +164,15 @@ class ActionHandler extends HTMLElement implements ActionHandler {
   }
 }
 
-// TODO You need to replace all instances of "action-handler-boilerplate" with "action-handler-<your card name>"
-customElements.define('action-handler-boilerplate', ActionHandler);
+customElements.define('action-handler-ns-card', ActionHandler);
 
 const getActionHandler = (): ActionHandler => {
   const body = document.body;
-  if (body.querySelector('action-handler-boilerplate')) {
-    return body.querySelector('action-handler-boilerplate') as ActionHandler;
+  if (body.querySelector('action-handler-ns-card')) {
+    return body.querySelector('action-handler-ns-card') as ActionHandler;
   }
 
-  const actionhandler = document.createElement('action-handler-boilerplate');
+  const actionhandler = document.createElement('action-handler-ns-card');
   body.appendChild(actionhandler);
 
   return actionhandler as ActionHandler;

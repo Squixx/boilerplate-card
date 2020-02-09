@@ -1,7 +1,7 @@
-import { LitElement, html, customElement, property, TemplateResult, CSSResult, css } from 'lit-element';
-import { HomeAssistant, fireEvent, LovelaceCardEditor, ActionConfig } from 'custom-card-helpers';
+import { ActionConfig, HomeAssistant, LovelaceCardEditor, fireEvent } from 'custom-card-helpers';
+import { CSSResult, LitElement, TemplateResult, css, customElement, html, property } from 'lit-element';
 
-import { BoilerplateCardConfig } from './types';
+import { NsCardConfig } from './types';
 
 const options = {
   required: {
@@ -44,13 +44,13 @@ const options = {
   },
 };
 
-@customElement('boilerplate-card-editor')
-export class BoilerplateCardEditor extends LitElement implements LovelaceCardEditor {
+@customElement('ns-card-editor')
+export class NsCardEditor extends LitElement implements LovelaceCardEditor {
   @property() public hass?: HomeAssistant;
-  @property() private _config?: BoilerplateCardConfig;
+  @property() private _config?: NsCardConfig;
   @property() private _toggle?: boolean;
 
-  public setConfig(config: BoilerplateCardConfig): void {
+  public setConfig(config: NsCardConfig): void {
     this._config = config;
   }
 
